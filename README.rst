@@ -22,7 +22,7 @@ Planned Components
         - each node manages a local copy of the blockchain
         - as new blocks are added to the local copy, a pointer to the head block will be maintained on IPNS
         - gossip
-            - every node will periodically (<30s) query the head of each peer’s blockchain at /ipns/<PEER ID>
+            - every node will periodically (<30s) query the head of each peer’s blockchain at /ipns/\<PEER ID\>
             - new blocks are merged into the blockchain and a new local blockchain is generated
                 - *how are blockchains merged?*
 - Index
