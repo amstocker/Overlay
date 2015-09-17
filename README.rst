@@ -1,7 +1,7 @@
-Overlay
-=======
+ipfs-tools
+==========
 
-*Tools for deploying distributed applicaions on IPFS using Python*
+*Tools for building distributed applicaions on IPFS using Python*
 
 This library will be a set of tools for building distributed applications which depend on dynamic content and thus need the ability to coordinate an index of ipfs objects between involved nodes.  The plan is to have each node manage a local blockchain or collection of block chains for each application, which can then be indexed locally.  While this not be massively scalable, it will be a good start until I figure out a good solution for a distributed index.
 
