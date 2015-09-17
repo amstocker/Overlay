@@ -13,6 +13,7 @@ This scheme relies on the generation of metablocks out of regular blocks either 
 *Variables beginning in `s_` are sets and operations are defined by [python set notation](https://docs.python.org/2/library/sets.html#set-objects).*
 
 .. code-block:: python
+
     api = get_ipfs_api()
     
     def merge(self, peer):
