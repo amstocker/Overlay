@@ -8,9 +8,12 @@ Consider that a scheme where for every 10 blocks added to the block chain, the n
 
 note that this scheme relies on the generation of metablocks not being arbitrary.
 
-PROBLEMS:
+Problems:
 ~~~~~~~~~
 - What if two nodes have metablocks that contain overlapping but different sub-blocks?
+
+Pseudocode:
+~~~~~~~~~~~
 
 *Variables beginning in `s_` are sets and operations are defined by [python set notation](https://docs.python.org/2/library/sets.html#set-objects).*
 
