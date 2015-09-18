@@ -6,9 +6,11 @@ In a network of nodes trying to coordinate a blockchain (a network perhaps less 
 
 Consider that a scheme where for every 10 blocks added to the block chain, the next block is the merkle root of those 10 blocks (call it a metablock).  Then for every 100 blocks (110 including metablocks), the next block is the merkle root of the previous 10 metablocks, etc etc.  In a situation where blockchains are perhaps more volatile, this would drastically reduce the numer of comparisons necessary in order to compare blockchains.  On a blockchain that has 11153 blocks, for example, the 11,111th block would be the metablock for the first 10,000 actual blocks, then there would be 3 metablocks for the next 3 sets of 10, and then 9 actual blocks that have not been consolidated yet.  Thus, on the first level of the tree there are only 13 hashes.
 
-**Apparent Problems**
+note that this scheme relies on the generation of metablocks not being arbitrary.
 
-This scheme relies on the generation of metablocks out of regular blocks either not being arbitrary or being coordinated between nodes.
+PROBLEMS:
+~~~~~~~~~
+- What if two nodes have metablocks that contain overlapping but different sub-blocks?
 
 *Variables beginning in `s_` are sets and operations are defined by [python set notation](https://docs.python.org/2/library/sets.html#set-objects).*
 
