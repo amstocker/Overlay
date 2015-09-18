@@ -1,10 +1,10 @@
 
-Blockchain TreeMerge Pseudocode
-----------------------------------
+Blockchain Tree Merge
+---------------------
 
-The Blockchain tree structure is a tree of blocks pointing to the multihashes other blocks (metablocks), the leaves of which are raw blocks of IPFS objects, and the root of which is a single multihash (called the head).  In a network of nodes trying to coordinate a blockchain, the tree structure of the blockchain serves the reduce the number of comparisons necessary, with older blocks eventually being consolidated into metablocks.
+In a network of nodes trying to coordinate a blockchain (a network less cohesive than the Bitcoin network), it would be convenient to think of the blockchain as a tree in order to reduce the number of comparisons necessary.
 
-Note that this algorithm performs best when the merged nodes are not too out of sync.  In the case that a node has been offline for a while, it should just assume the most common head node of its peers.
+Consider that a scheme where for every 10 blocks added to the block chain, the next block is the merkle root of those 10 blocks (call it a metablock).  Then for every 100 blocks (110 including metablocks), the next block is the merkle root of the previous 10 metablocks, etc etc.  In a situation where blockchains are perhaps more volatile, this would drastically reduce the numer of comparisons necessary in order to compare blockchains.  On a blockchain that has 11153 blocks, for example, the 11,111th block would be the metablock for the first 10,000 actual blocks, then there would be 3 metablocks for the next 3 sets of 10, and then 9 actual blocks that have not been consolidated yet.  Thus, on the first level of the tree there are only 13 hashes.
 
 **Apparent Problems**
 
