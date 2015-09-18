@@ -23,35 +23,37 @@ This scheme relies on the generation of metablocks out of regular blocks either 
         # api.ls returns a list of blocks that the given
         # block points to.
         s_self = api.ls(self.head)
-      s_peer = api.ls(peer.head)
+        s_peer = api.ls(peer.head)
       
         # The set of blocks needed by this node
-      need = s_peer - (s_self & s_peer)
-    
-      # The set of blocks this node has but the peer doesn't.
-      # Some of these blocks could be included in a metablock
-      # owned by the peer.
-      leftover = s_self - (s_self & s_peer)
+        need = s_peer - (s_self & s_peer)
+
+        # The set of blocks this node has but the peer doesn't.
+        # Some of these blocks could be included in a metablock
+        # owned by the peer.
+        leftover = s_self - (s_self & s_peer)
       
-      while len(need) > 0:
-        block = need.pop()
-        if not is_metablock(block):
-          # self.own performs all operations necessary for this node to
-                # own the given block.  Then, add this new block to the leftover
-          # set incase it is included in any of the peer's metablocks
-          self.own(block)
-          leftover.add(block)
-        else:
-          # block is a metablock and thus points to other blocks.
-          s_meta = api.ls(block)
-          if s_meta <= leftover:
-            # relinquish ownership of all blocks contained in the metablock
-            # and assume ownership of the metablock
-            self.disown(s_meta & leftover)
-            self.add(block)
-          else:
-            # if this node doesn't yet control all blocks in the metablock,
-            # add the metablock back into the queue and also add all the
-            # blocks this node is missing under the metablock.
-            need.add(block)
-            need.add(s_meta & leftover)
+        while len(need) > 0:
+            block = need.pop()
+            if not is_metablock(block):
+                # self.own performs all operations necessary for this node to
+                # own the given block.  Then, add this new block to the
+                # leftover set incase it is included in any of the peer's
+                # metablocks
+                self.own(block)
+                leftover.add(block)
+            else:
+                # block is a metablock and thus points to other blocks.
+                s_meta = api.ls(block)
+                if s_meta <= leftover:
+                    # relinquish ownership of all blocks contained in the 
+                    # metablock and assume ownership of the metablock
+                    self.disown(s_meta & leftover)
+                    self.add(block)
+                else:
+                    # if this node doesn't yet control all blocks in the
+                    # metablock, add the metablock back into the queue and also
+                    # add all the blocks this node is missing under the
+                    # metablock.
+                    need.add(block)
+                    need.add(s_meta & leftover)
