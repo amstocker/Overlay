@@ -7,5 +7,5 @@ import gevent
 from ipfsApi import Client
 
 
-def map(requests):
+def map(cmd, requests):
     pass
