@@ -17,24 +17,22 @@ Assumptions made:
 the block
 ~~~~~~~~~
 
-```
+.. code-block::
 
-{
-  'Data': {
-    'height':       <height in blockchain>,
-    'app_mhash':    <multihash bound to application>,
-    'created_utc':  <unix timestamp @ creation>,
-    'num_objects':  <number of objects contained in this block>,
-    'previous':     <multihash of previous block>
-  },
-  'Links': [
-    <ipfs object>,
-    <ipfs object>,
-    ...
-  ]
-}
-
-```
+  {
+    'Data': {
+      'height':       <height in blockchain>,
+      'app_mhash':    <multihash bound to application>,
+      'created_utc':  <unix timestamp @ creation>,
+      'num_objects':  <number of objects contained in this block>,
+      'previous':     <multihash of previous block>
+    },
+    'Links': [
+      <ipfs object>,
+      <ipfs object>,
+      ...
+    ]
+  }
 
 
 gossip
