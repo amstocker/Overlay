@@ -1,9 +1,9 @@
 """
 MultiAddress string and byte parsing.
 """
-from ipfstools.transport.multiaddr import protocols, conversion
-from ipfstools.transport.multiaddr.exceptions import AddressException
-from ipfstools.transport.multiaddr.exceptions import ProtocolException
+from ipfstools.multiaddr import protocols, conversion
+from ipfstools.multiaddr.exceptions import AddressException
+from ipfstools.multiaddr.exceptions import ProtocolException
 
 
 
