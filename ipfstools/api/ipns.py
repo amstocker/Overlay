@@ -1,7 +1,7 @@
-from .exceptions import IPNSException
+from ipfstools.api.exceptions import IPNSException
 
 
-class Manager(object):
+class NamespaceManager(object):
     """
     At the moment IPFS only supports a single object published to a node's
     namespace.  This class servers to manage that object transparently.

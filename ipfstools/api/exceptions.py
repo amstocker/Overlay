@@ -1,4 +1,4 @@
-from ..exceptions import IPFSException
+from ipfstools.exceptions import IPFSException
 
 
 class IPNSException(IPFSException):
